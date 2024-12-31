@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR 코드 생성기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>QR 코드 생성기</h1>
+    <p>텍스트 또는 URL을 입력한 후 QR 코드를 생성하세요.</p>
+
+    <!-- 입력 필드 -->
+    <input type="text" id="qrInput" placeholder="텍스트 또는 URL 입력">
+
+    <!-- QR 코드 생성 버튼 -->
+    <button id="generateBtn">QR 코드 생성</button>
+
+    <!-- QR 코드 출력 영역 -->
+    <div id="qrCode"></div>
+
+    <!-- QR 코드 다운로드 버튼 -->
+    <button id="downloadBtn" style="display: none;">QR 코드 다운로드</button>
+  </div>
+
+  <!-- QRCode.js 라이브러리 포함 -->
+  <script src="qrcode.min.js"></script>
+
+  <!-- JavaScript 로직 -->
+  <script src="script.js"></script>
+</body>
+</html>

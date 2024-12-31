@@ -1,0 +1,73 @@
+/* 전체 페이지 스타일링 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 컨테이너 스타일 */
+.container {
+  text-align: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+
+/* 제목 스타일 */
+h1 {
+  font-size: 1.8rem;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+/* 설명 텍스트 스타일 */
+p {
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+/* 입력 필드 스타일 */
+input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* 버튼 스타일 */
+button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* QR 코드 출력 영역 스타일 */
+#qrCode {
+  margin: 20px 0;
+}
+
+/* 다운로드 버튼 숨기기 */
+#downloadBtn {
+  display: none;
+}
