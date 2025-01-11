@@ -2,6 +2,8 @@
 
 QR 코드 생성기
 
+
+# 실행
 npm install -g live-server
 
 live-server
