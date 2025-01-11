@@ -40,3 +40,4 @@ function generateQRCode() {
 
 // 이벤트 리스너 추가
 generateBtn.addEventListener("click", generateQRCode); // "QR 코드 생성" 버튼 클릭 시 동작
+
