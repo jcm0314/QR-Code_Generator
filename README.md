@@ -3,6 +3,7 @@
 QR 코드 생성기
 
 npm install -g live-server
+
 live-server
 
 
