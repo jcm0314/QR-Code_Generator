@@ -1,6 +1,10 @@
 # QR-Code_Generator
-1
+
 QR 코드 생성기
+
+npm install -g live-server
+live-server
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
