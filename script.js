@@ -16,28 +16,48 @@ function generateQRCode() {
 
   // 기존 QR 코드 초기화
   qrCodeDiv.innerHTML = "";
+  downloadBtn.style.display = "none"; // 초기화 시 다운로드 버튼 숨기기
 
   // QR 코드 생성
   const qrCode = new QRCode(qrCodeDiv, {
     text: inputValue, // QR 코드에 포함될 데이터
     width: 200, // QR 코드 너비
     height: 200, // QR 코드 높이
+    correctLevel: QRCode.CorrectLevel.H,
   });
 
   // 다운로드 버튼 활성화
-  downloadBtn.style.display = "block";
-
-  // QR 코드 생성 후 다운로드 기능 추가
   setTimeout(() => {
-    const qrCanvas = qrCodeDiv.querySelector("canvas"); // 생성된 QR 코드의 Canvas 가져오기
-    const qrImage = qrCanvas.toDataURL("image/png");   // Canvas를 PNG 이미지로 변환
+    downloadBtn.style.display = "inline-block"; // 다운로드 버튼 표시
+  }, 100);
+}
 
-    // 다운로드 버튼에 이미지 연결
-    downloadBtn.href = qrImage;
-    downloadBtn.download = "qr-code.png"; // 다운로드 파일명 설정
-  }, 100); // QR 코드 생성 후 약간의 지연 시간 추가
+// QR 코드 다운로드 함수
+function downloadQRCode() {
+  const qrCanvas = qrCodeDiv.querySelector("canvas");
+  if (qrCanvas) {
+    qrCanvas.toBlob((blob) => {
+      if (blob) {
+        const qrImageURL = URL.createObjectURL(blob); // Blob URL 생성
+        console.log("QR Image Blob URL: ", qrImageURL); // 디버그 로그
+
+        // 다운로드 링크 생성 및 클릭 실행
+        const link = document.createElement("a");
+        link.href = qrImageURL;
+        link.download = "qr-code.png"; // 다운로드 파일명 설정
+        document.body.appendChild(link);
+        link.click(); // 다운로드 강제 실행
+        document.body.removeChild(link);
+        URL.revokeObjectURL(qrImageURL); // 메모리 해제
+      } else {
+        alert("QR 코드를 Blob으로 변환하지 못했습니다.");
+      }
+    }, "image/png");
+  } else {
+    alert("QR 코드를 생성하지 못했습니다.");
+  }
 }
 
 // 이벤트 리스너 추가
 generateBtn.addEventListener("click", generateQRCode); // "QR 코드 생성" 버튼 클릭 시 동작
-
+downloadBtn.addEventListener("click", downloadQRCode); // 다운로드 버튼 클릭 시 동작
