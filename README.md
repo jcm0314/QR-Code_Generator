@@ -2,6 +2,7 @@
 
 QR 코드 생성기
 
+made by jcm0314
 
 # 실행
 npm install -g live-server
